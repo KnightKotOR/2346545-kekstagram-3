@@ -6,8 +6,7 @@ export function randInt(min, max){ // Результат: целое число 
   }
 
   //Получение и округления результата
-  let n = Math.random * (max - min + 1) + min;
-  return Math.floor(n);
+  return Math.floor(Math.random * (max - min + 1) + min);
 }
 
 export function checkLength(str, maxLength){ // Результат: true, если строка проходит по длине, и false — если не проходит

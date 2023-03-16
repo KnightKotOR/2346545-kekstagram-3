@@ -11,9 +11,9 @@ const generatePhoto = (n) => ({
 export const generatePhotos = (n) => {
   const data = [];
   for (let i = 0; i < n; i++) {
-    data[i] = photo(i+1);
+    data[i] = generatePhoto(i+1);
   }
   return data;
 }
 
-photoData(25);
+generatePhotos(25);
