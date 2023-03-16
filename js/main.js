@@ -1,3 +1,5 @@
+//module2-task1
+
 function randInt(min, max){ // Результат: целое число из диапазона "от...до" или уведомление об ошибке
 
   //Проверка удовлетворению условий
@@ -23,3 +25,23 @@ function lengthCheck(str, maxLength){ // Результат: true, если ст
 
 lengthCheck('keks', 2);
 lengthCheck('keks', 10);
+
+//module4-task1
+
+const data = [];
+
+const photo = (n) => ({
+  id: n,
+  url: `photos/${  n  }.jpg`,
+  description: `jpg № ${ n }`,
+  likes: randInt(15, 200),
+  comments: randInt(0, 200),
+});
+
+function photoData (n){
+  for (let i = 1; i <= n; i++) {
+    data[i] = photo(i);
+  }
+}
+
+photoData(25);
