@@ -1,3 +1,5 @@
+//Задание 7 часть 2
+
 import { generatePhotos } from './data.js';
 import { insertMin } from './picMin.js';
 
