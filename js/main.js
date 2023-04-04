@@ -1,4 +1,5 @@
 import { generatePhotos } from './data.js';
+import { insertMin } from './picMin.js';
 
-// eslint-disable-next-line no-console
-console.log(generatePhotos(25));
+const pictures = generatePhotos(25);
+insertMin(pictures);
