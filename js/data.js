@@ -1,4 +1,4 @@
-import { randInt } from "./util.js";
+import { randInt } from './util.js';
 
 const generatePhoto = (n) => ({
   id: n,
@@ -6,7 +6,7 @@ const generatePhoto = (n) => ({
   description: `jpg № ${ n }`,
   likes: randInt(15, 200),
   comments: randInt(0, 200),
-})
+});
 
 export const generatePhotos = (n) => {
   const data = [];
@@ -14,6 +14,6 @@ export const generatePhotos = (n) => {
     data[i] = generatePhoto(i+1);
   }
   return data;
-}
+};
 
 generatePhotos(25);
