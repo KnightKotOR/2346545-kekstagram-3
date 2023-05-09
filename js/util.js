@@ -10,5 +10,5 @@ export function randInt(min, max){ // Результат: целое число 
 }
 
 export function checkLength(str, maxLength){ // Результат: true, если строка проходит по длине, и false — если не проходит
-  return str.length > maxLength;
+  return str.length <= maxLength;
 }
