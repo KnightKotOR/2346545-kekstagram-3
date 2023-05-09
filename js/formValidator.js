@@ -11,13 +11,13 @@ const pristine  = new Pristine(form, {
   errorTextClass: 'form__error'
 });
 
-const validateComment = function (value) {
-  return checkLength(value, 240);
+const validateComment = function (v) {
+  return checkLength(v, 140) && !checkLength(v, 19);
 };
 
 pristine.addValidator(form.querySelector('.text__description'),
   // eslint-disable-next-line no-use-before-define
-  validateComment, 'Комментарий не должен превышать 240 символов');
+  validateComment, 'Длина комментария должна входить диапозон 20-140 символов');
 
 form.addEventListener('submit', (evt) => {
   if (!pristine.validate()) {
