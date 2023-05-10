@@ -2,7 +2,7 @@ const preview = document.querySelector('.img-upload__preview');
 const effects = document.querySelector('.img-upload__effects').querySelectorAll('input[name="effect"]');
 
 let newEffect = document.querySelector('.img-upload__effects').querySelectorAll('input[name="effect"]:checked');
-let curEffect = 'effects__preview--none';
+export let curEffect = 'effects__preview--none';
 
 const effectChanger = function () {
   for (const effect of effects){
@@ -14,6 +14,12 @@ const effectChanger = function () {
       curEffect = effectClass;
     }
   }
+};
+
+export const clearEffect = function () {
+  document.querySelector('.img-upload__effects').querySelector('input[id="effect-none"]').checked = true;
+  newEffect = 'effects__preview--none';
+  effectChanger();
 };
 
 for (const effect of effects){

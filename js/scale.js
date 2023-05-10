@@ -1,7 +1,7 @@
 const preview = document.querySelector('.img-upload__preview');
 const scaleBigger = document.querySelector('.scale__control--bigger');
 const scaleSmaller = document.querySelector('.scale__control--smaller');
-const scaleValue = document.querySelector('.scale__control--value');
+export const scaleValue = document.querySelector('.scale__control--value');
 
 const scaleFunction = function (sign, img, scale) {
   const curScale = parseInt(scale.value, 10);

@@ -1,17 +1,8 @@
-import { randInt } from './util.js';
+const BACKEND_URL = 'https://27.javascript.pages.academy/kekstagram-simple/data';
 
-const generatePhoto = (n) => ({
-  id: n,
-  url: `photos/${ n }.jpg`,
-  description: `jpg № ${ n }`,
-  likes: randInt(15, 200),
-  comments: randInt(0, 200),
-});
-
-export const generatePhotos = (n) => {
-  const data = [];
-  for (let i = 0; i < n; i++) {
-    data[i] = generatePhoto(i+1);
-  }
-  return data;
-};
+export function getPhotos (onSuccess) {
+  fetch(BACKEND_URL)
+    .then((response) => response.json())
+    .then(onSuccess)
+    .catch(Error);
+}

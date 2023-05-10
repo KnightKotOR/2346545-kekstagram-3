@@ -11,7 +11,7 @@ const pristine  = new Pristine(form, {
   errorTextClass: 'form__error'
 });
 
-const validateComment = function (v) {
+export const validateComment = function (v) {
   return checkLength(v, 140) && !checkLength(v, 19);
 };
 
