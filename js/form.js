@@ -2,7 +2,7 @@ import {clearEffect} from './effect.js';
 import {scaleValue} from './scale.js';
 import { openError } from './fetch.js';
 import { openSuccess } from './fetch.js';
-import { validateComment } from './formValidator.js';
+import { validateComment, validateHashtag } from './formValidator.js';
 
 const BACKEND_URL = 'https://27.javascript.pages.academy/kekstagram-simple';
 
@@ -48,7 +48,7 @@ const cleanForm = function () {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (!validateComment(comment.value)) {
+  if (!validateComment(comment.value || !validateHashtag(hashtag.value))) {
     // eslint-disable-next-line no-console
     return (console.log('nonvalidate comment'));
   }
