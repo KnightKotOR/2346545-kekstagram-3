@@ -7,7 +7,7 @@ const sliderValue = document.querySelector('.effect-level__value');
 let newEffect = document.querySelector('.img-upload__effects').querySelectorAll('input[name="effect"]:checked');
 export let curEffect = 'effects__preview--none';
 
-function effectChanger(e) {
+function effectChanger(evt) {
   for (const effect of effects){
     if (effect.checked){
       newEffect = effect;
@@ -15,20 +15,13 @@ function effectChanger(e) {
       preview.classList.remove(curEffect);
       preview.classList.add(effectClass);
       curEffect = effectClass;
-      setSlider(e.target.value);
+      setSlider(evt.target.value);
     }
   }
 }
 
-export function clearEffect() {
-  document.querySelector('.img-upload__effects').querySelector('input[id="effect-none"]').checked = true;
-  newEffect = 'effects__preview--none';
-  sliderElement.classList.add('visually-hidden');
-  effectChanger();
-}
-
 for (const effect of effects){
-  effect.addEventListener('input', (e) => {effectChanger(e);});
+  effect.addEventListener('input', (evt) => {effectChanger(evt);});
 }
 
 noUiSlider.create(sliderElement, {

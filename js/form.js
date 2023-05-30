@@ -1,4 +1,4 @@
-import {clearEffect} from './effect.js';
+import { curEffect, sliderElement} from './effect.js';
 import {scaleValue} from './scale.js';
 import { openError } from './fetch.js';
 import { openSuccess } from './fetch.js';
@@ -23,32 +23,35 @@ export const escKey = function (e) {
   }
 };
 
-const openWindow = function () {
+function cleanForm() {
+  downloadButton.value = '';
+  hashtag.value = '';
+  comment.value = '';
+  preview.classList.remove(curEffect);
+  preview.classList.add('effects__preview--none');
+  scaleValue.value = '100%';
+  preview.style = `transform: scale(${parseInt(scaleValue.value, 10) / 100})`;
+  sliderElement.classList.add('visually-hidden');
+
+}
+
+function openWindow () {
   overlay.classList.remove('hidden');
   body.classList.add('modal-open');
   body.addEventListener('keydown', escKey);
-};
+}
 
-const closeWindow = function () {
+function closeWindow() {
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', escKey);
   // eslint-disable-next-line no-use-before-define
   cleanForm();
-};
-
-const cleanForm = function () {
-  downloadButton.value = '';
-  hashtag.value = '';
-  comment.value = '';
-  scaleValue.value = '100%';
-  preview.style = `transform: scale(${parseInt(scaleValue.value, 10) / 100})`;
-  clearEffect();
-};
+}
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (!validateComment(comment.value || !validateHashtag(hashtag.value))) {
+  if (!validateComment(comment.value) || !validateHashtag(hashtag.value)) {
     // eslint-disable-next-line no-console
     return (console.log('nonvalidate comment'));
   }
